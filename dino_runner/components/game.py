@@ -37,6 +37,8 @@ class Game:
     def run(self):
         # Game loop: events - update - draw
         self.playing = True
+        self.score = 0
+        self.game_speed = 20
         self.obstacle_manager.reset_obstacles()
         while self.playing:
             self.events()
@@ -57,7 +59,7 @@ class Game:
     def update_score(self):
         self.score += 1
         if self.score % 100 == 0:
-            self.game_speed += 5
+            self.game_speed += 1
 
     def draw(self):
         self.clock.tick(FPS)
@@ -79,11 +81,7 @@ class Game:
         self.x_pos_bg -= self.game_speed
 
     def draw_score(self):
-        font = pygame.font.Font(FONT_STYLE, 22)
-        text = font.render(f'Score: {self.score}', True, (0,0,0))
-        text_rect = text.get_rect()
-        text_rect.center = (1000, 50)
-        self.screen.blit(text, text_rect)
+        self.text(f'Score: {self.score}', (1000, 50))
 
     def handle_events_on_menu(self):
         for event in pygame.event.get():
@@ -93,19 +91,28 @@ class Game:
             elif event.type == pygame.KEYDOWN:
                 self.run()
 
+    def text(self, texto, posicao):
+        font = pygame.font.Font(FONT_STYLE, 22)
+        self.texto = font.render(texto, True, (0,0,0))
+        self.posicao = self.texto.get_rect()
+        self.posicao.center = posicao 
+        self.screen.blit(self.texto, self.posicao)
+
+
     def show_menu(self):
         self.screen.fill((255,255,255))
         half_screen_height = SCREEN_HEIGHT // 2
         half_screen_width = SCREEN_WIDTH // 2
 
         if self.death_count == 0:
-            font = pygame.font.Font(FONT_STYLE, 22)
-            text = font.render("Press any key to start", True, (0,0,0))
-            text_rect = text.get_rect()
-            text_rect.center = (half_screen_width, half_screen_height)
-            self.screen.blit(text, text_rect)
+            self.text("Press any key to start", (half_screen_width, half_screen_height))
+            
         else:
             self.screen.blit(ICON, (half_screen_width -20, half_screen_height - 140))
+            self.text("Press any key to start", (half_screen_width, half_screen_height))
+            self.text(f"Death Count: {self.death_count}", (half_screen_width, half_screen_height + 30))
+            self.text(f"Score: {self.score}", (half_screen_width, half_screen_height + 60))
+
 
         pygame.display.update()
 
