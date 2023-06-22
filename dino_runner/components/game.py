@@ -158,7 +158,7 @@ class Game:
             self.text("Press any key to start", (half_screen_width, half_screen_height))
             
         else:
-            self.screen.blit(ICON, (half_screen_width -20, half_screen_height - 140))
+            self.screen.blit(ICON, (half_screen_width -80, half_screen_height - 140))
             self.text("Press any key to start", (half_screen_width, half_screen_height))
             self.text(f"Death Count: {self.death_count}", (half_screen_width, half_screen_height + 30))
             self.text(f"Score: {self.score}", (half_screen_width, half_screen_height + 60))
