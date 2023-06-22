@@ -65,7 +65,14 @@ CLOUD = pygame.image.load(os.path.join(IMG_DIR, 'Other/Cloud.png'))
 SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
 HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png'))
 
-BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
+BG = [
+    pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png')),
+    pygame.image.load(os.path.join(IMG_DIR, 'Other/Track1.png')),
+    pygame.image.load(os.path.join(IMG_DIR, 'Other/Track2.png')),
+    pygame.image.load(os.path.join(IMG_DIR, 'Other/Track3.png')),
+    pygame.image.load(os.path.join(IMG_DIR, 'Other/Track4.png')),
+    pygame.image.load(os.path.join(IMG_DIR, 'Other/Track5.png'))
+]
 
 HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
 

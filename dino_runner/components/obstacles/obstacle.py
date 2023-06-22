@@ -8,6 +8,7 @@ class Obstacle(Sprite):
     def __init__(self,image,type):
         self.type = type
         self.image = image
+        self.mask = pygame.mask.from_surface(self.image[0])
         self.rect = self.image[self.type].get_rect()
         self.rect.x = SCREEN_WIDTH
 

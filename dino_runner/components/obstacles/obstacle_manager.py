@@ -23,7 +23,9 @@ class ObstacleManager:
 
         for obstacle in self.obstacles:
             obstacle.update(game.game_speed,self.obstacles)
-            if game.player.dino_rect.colliderect(obstacle.rect):
+            if game.player.mask.overlap(obstacle.mask,
+                (obstacle.rect.x - game.player.dino_rect.x, 
+                 obstacle.rect.y - game.player.dino_rect.y)):
                 if not game.player.has_power_up and game.life > 1:
                     game.life -= 1
                     self.obstacles.remove(obstacle)
