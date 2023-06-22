@@ -32,6 +32,7 @@ class ObstacleManager:
                 elif not game.player.has_power_up and game.life <= 1:
                     pygame.time.delay(500)
                     game.playing = False
+                    pygame.mixer.music.fadeout(500)
                     game.death_count += 1
                     break
                 else:

@@ -1,5 +1,6 @@
 import pygame
 import os
+pygame.mixer.init()
 
 # Global Constants
 TITLE = "Chrome Dino Runner"
@@ -46,14 +47,14 @@ DUCKING_HAMMER = [
 ]
 
 SMALL_CACTUS = [
-    pygame.image.load(os.path.join(IMG_DIR, "obstacles/Small1.png")),
-    pygame.image.load(os.path.join(IMG_DIR, "obstacles/Small2.png")),
-    pygame.image.load(os.path.join(IMG_DIR, "obstacles/Small3.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Obstacles/Small1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Obstacles/Small2.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Obstacles/Small3.png")),
 ]
 LARGE_CACTUS = [
-    pygame.image.load(os.path.join(IMG_DIR, "obstacles/Large1.png")),
-    pygame.image.load(os.path.join(IMG_DIR, "obstacles/Large2.png")),
-    pygame.image.load(os.path.join(IMG_DIR, "obstacles/Large3.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Obstacles/Large1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Obstacles/Large2.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Obstacles/Large3.png")),
 ]
 
 BIRD = [
@@ -75,6 +76,7 @@ BG = [
 ]
 
 HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/heart.png'))
+MUSIC = pygame.mixer.music.load("dino_runner/assets/Music/Nyan Cat.mp3")
 
 DEFAULT_TYPE = "default"
 SHIELD_TYPE = "shield"

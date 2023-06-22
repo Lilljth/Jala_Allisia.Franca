@@ -41,6 +41,8 @@ class Game:
     def run(self):
         # Game loop: events - update - draw
         self.playing = True
+        pygame.mixer.music.set_volume(0.5)
+        pygame.mixer.music.play(-1)
         self.reset()
         while self.playing:
             self.events()
